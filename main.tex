@@ -19,7 +19,7 @@
 \usepackage[table]{xcolor}
 \usepackage{amsfonts,graphicx,amsmath,hyperref}
 \title{Habib University\\CS-113 Discrete Mathematics\\Spring 2018\\HW 2}
-\author{$<your ID>$}  % replace with your ID, e.g. oy02945
+\author{$ mz04027 $}  % replace with your ID, e.g. oy02945
 \date{Due: 19h, 16th February, 2018}
 
 
@@ -48,13 +48,31 @@
   \end{center}
 
   \begin{solution}
-    % Write your solution here
+    % Write your solution here 
+    \\ i.   Partial Function:
+    \begin{center}
+    Domain:  ${\Bbb R}$  \\ 
+    Co-Domain: ${\Bbb R} ^ +$  \\ 
+    It will not be defined for negative set of input values.
+    \end{center}
+    ii.   Total Function:
+    \begin{center}
+    Domain:  ${\Bbb R}$  \\ 
+    Co-Domain: ${\Bbb C}$  \\ 
+    It will be defined for input values, but every negative number will have two complex square roots.
+    \end{center}
   \end{solution}
   
   \part[5] Explain whether $f$ is a function from the set of all bit strings to the set of integers if $f(S)$ is the smallest $i \in \mathbb{Z}$� such that the $i$th bit of S is 1 and $f(S) = 0$ when S is the empty string. 
   
   \begin{solution}
     % Write your solution here
+    By definition, we know that a function creates a relation between the domain and the co-domain, such that no element in the domain is left un-mapped. According to the function, $f$ whenever a bit string has a 1 as its first bit, it maps to the 1 in the co-domain. some goes for whenever there is a 1 at the second bit of the bit string, it maps to 2 in the co-domain. In general, we can say that when there is a 1 at the nth bit of a bit string, then it maps itself to n in the co-domain. If we have an empty string, it will be mapped to the zero in the co-domain. \\
+    $f$ is not a function, for two reasons:
+    \begin{itemize}
+        \item The elements in the domain without 1s are undefined, and in a function every element in the domain needs to be mapped to an element in the co-domain.
+        \item The elements with multiple 1s, will be mapped to multiple elements in the co-domain, which by definition, is not allowed.
+    \end{itemize}
   \end{solution}
 
   \part[15] For $X,Y \in S$, explain why (or why not) the following define an equivalence relation on $S$:
@@ -66,6 +84,24 @@
 
   \begin{solution}
     % Write your solution here
+    \\
+    For two sets to have an equivalence relation, they need to be reflexive, symmetric and transitive. \\ \\
+    i.  ``$X$ and $Y$ have been in class together" \\
+    Reflexive: If $X$ is in some class, he can't be anywhere else, thus, $X$ will relate to itself. Same for $Y$, it will relate to itself. Thus, the elements are reflexive. \\ 
+    Symmetric: If X and Y are in some class together, then Y and X are also in the class together. \\
+    Transitive: If X is in class with Z, and Y is also in a class with Z, it does not mean that X and Y are in a class together, because the class that X and Z share might be different from the class Y and Z share.  \\
+    They do not have an equivalence relation, because they're not transitive. \\ \\
+    ii. ``$X$ and $Y$ rhyme" 
+    Reflexive: To rhyme means to produce a similar sound in the end. All words produce the same sound as itself, thus all words are reflexive, $X$ and $Y$ are also reflexive. \\ 
+    Symmetric: If X rhymes with Y, then Y also rhymes with X, because they have similar ending sounds, no matter the order. \\
+    Transitive: If X rhymes with Z and Y rhymes with Z, then X and Y rhyme; because they all have similar ending sounds. \\ 
+    They have an equivalence relation, because they are reflexive, symmetric and transitive. \\ \\
+    iii.  ``$X$ is a subset of $Y$" \\ 
+    Reflexive: If X is a set, all elements are in the set, and all elements in the set Y are in itself, the set Y. \\
+    Symmetric: If X is a subset of Y, then Y cannot be a subset of X, unless X = Y. Thus, not symmetric. \\
+    Transitive: If X is a subset of Z, and Y is also a subset of Z, it is not necessary that X is a subset of Y. \\
+    They do not have an equivalence relation, because they're not symmetric.
+
   \end{solution}
 
 \end{parts}
@@ -74,6 +110,8 @@
 \question[15] Let $A = f^{-1}(B)$. Prove that $f(A) \subseteq B$.
   \begin{solution}
     % Write your solution here
+    \\
+    For a function to have an inverse, it should be invertible, that is, it should have one-to-one correspondence or it should be bijective. One-to-one correspondence or bijective means each object in the domain, maps to only one object in the co-domain; and that no element in the domain or co-domain is left un-mapped. \\ Suppose a $\in$ A and b $\in$ B, \\ We can also say a $\in$ $f^{-1}(B)$ \\ Can be written as b $\in$ $f(A)$ or b $\in$ $f(f^{-1}(B))$ \\ Since, b $\in$ B, \hspace{1cm} $f(f^{-1}(B))$ $\in$ B, \\ As $A = f^{-1}(B)$, thus $f(A) \subseteq B$.
   \end{solution}
 
 \question[15] Consider $[n] = \{1,2,3,...,n\}$ where $n \in \mathbb{N}$. Let $A$ be the set of subsets of $[n]$ that have even size, and let $B$ be the set of subsets of $[n]$ that have odd size. Establish a bijection from $A$ to $B$, thereby proving $|A| = |B|$. (Such a bijection is suggested below for $n = 3$) 
@@ -89,6 +127,15 @@
 
   \begin{solution}
     % Write your solution here
+    \\ Let S be an element in A \\ \[ f(S) = 
+\left \{
+  \begin{tabular}{ccc}
+   S $\cup$ $ \{|n|\} $ & & if $|n|$ $\notin$ S\\
+   S - $ \{|n|\} $ & & if $|n|$ $\in$ S  \\
+  \end{tabular}
+\right \}
+\] 
+To create a bijective function from A to B, take set A as the domain and B as the co-domain. Then traverse over the set A, if the element has a 3 in it, that is the cardinality of set n, then subtract 3 from that set and include it in set B, the co-domain or map the two elements. If the element does not have 3, then perform a union between that element and 3, whatever set is formed is another element in the co-domain. 
   \end{solution}
   
 \question Mushrooms play a vital role in the biosphere of our planet. They also have recreational uses, such as in understanding the mathematical series below. A mushroom number, $M_n$, is a figurate number that can be represented in the form of a mushroom shaped grid of points, such that the number of points is the mushroom number. A mushroom consists of a stem and cap, while its height is the combined height of the two parts. Here is $M_5=23$:
@@ -121,11 +168,25 @@ Study the first five mushrooms carefully and make sure you can draw subsequent o
   \begin{parts}
     \part[15] Derive a closed-form for $M_n$ in terms of $n$.
   \begin{solution}
-    % Write your solution here
+    % Write your solution here 
+    
+    Cap\_width(n) = n + 1 \\ Cap\_height(n) = \left\lfloor\dfrac{n}{2}\right\rfloor + 1 \hspace{0.5cm} \text{if n is even} \hspace{0.5cm} \text{and} \hspace{0.5cm} \text{Cap\_height(n) }= \left\lfloor\dfrac{n}{2}\right\rfloor + 2 \hspace{0.5cm} \text{if n is odd} 
+    \\ \text{Stem\_height(n)} = n - 1 \\
+    M_{n} = (2 * Stem\_height(n)) + ((Cap\_height(n)/2) * ((2 * Cap\_width(n)) + ((Cap\_height(n) - 1)(-1)))) \\
+    M_{n} = 
+    \begin{cases}
+         \dfrac{3n^{2}}{8} + \dfrac{13n}{4} - 1 \hspace{7cm} \text{if n is even}  \\
+             (2n - 2) + (\dfrac{\left\lfloor\dfrac{n}{2}\right\rfloor + 2}{2} * ((2n + 2) + (\left\lfloor\dfrac{n}{2}\right\rfloor + 2 - 1)(-1))) \hspace{1cm} \text{if n is odd}
+         
+    \end{cases}
   \end{solution}
+  
     \part[5] What is the total height of the $20$th mushroom in the series? 
   \begin{solution}
     % Write your solution here
+    \\    Total\_height = Cap\_height + Stem\_height 
+    \\               =      11     +    19
+    \\               =          30
   \end{solution}
 \end{parts}
 
@@ -154,11 +215,13 @@ The \href{http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibGen.ht
  
     \begin{solution}
     % Write your solution here
+    \\ For a set to be countable, you either need to be able to create a bijection between that set and the set of Natural numbers, or to be able to list all the elements. \\ According to the definition of Fibonacci series, an element n can be found out from the bijective function $ F_{n} = F_{n-1} + F_{n-2} $, when $F_{1} = 0 $ and $ F_{2} = 1$. There is no natural number for which there is no Fibonacci number (injective), nor is there such a condition in which we cannot calculate the next term (surjective), thus proving Fibonacci series is bijective with set of Natural numbers, and we can also list all the elements systematically, means the series is countable. \\ Domain= \{1, 2, 3, 4, 5, 6 .. \} \hspace{1cm} Co-domain= \{0, 1, 1, 2, 3, 5, .. \} \\ $F_{1} = 0, F_{2} = 1, F_{3} = 1, F_{4} = 2, F_{5} = 3, F_{6} = 5 .. $ 
   \end{solution}
   \part[15] Consider the Modified Wythoff as any array derived from the original, where each entry of the leading diagonal (marked in blue) of the original 2D-Array is replaced with an integer that does not occur in that row. Prove that the Modified Wythoff Array is countable. 
 
   \begin{solution}
     % Write your solution here
+    Wythoff array is an interspersion of Fibonacci series, that means each row is a separate Fibonacci series. \\ If we change entries in the diagonal to integers that do not occur in that row, then in the row, there will be one Fibonacci series before the changed integer, and one series after it. \\ \textbf{Proving rows are countable:} \\ As we know, a Fibonacci series is countable, and that the set formed from union of two countable sets is also a countable set, then the union of two Fibonacci series and one integer is countable. \\ \textbf{Proving number of rows is countable:}  \\ We also know that natural numbers are countable, since number of rows is a natural number, thus it is countable. \\ \textbf{Proving array is countable: }\\ If a natural number is multiplied by a countable set, then the resultant set is also countable, that is the number of rows multiplied by a countable Fibonacci series, will be countable. \\ Thus proving Wythoff array is countable.
   \end{solution}
 \end{parts}
 
